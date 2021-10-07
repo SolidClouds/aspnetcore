@@ -10,7 +10,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.AspNetCore.SignalR.Client.Internal
 {
-    internal abstract class InvocationRequest : IDisposable
+#pragma warning disable RS0016 // Add public types and members to the declared API
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    public abstract class InvocationRequest : IDisposable
     {
         private readonly CancellationTokenRegistration _cancellationTokenRegistration;
 

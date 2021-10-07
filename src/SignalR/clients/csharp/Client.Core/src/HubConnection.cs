@@ -59,7 +59,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         };
 
         private static readonly MethodInfo _sendStreamItemsMethod = typeof(HubConnection).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance).Single(m => m.Name.Equals(nameof(SendStreamItems)));
-        private static readonly MethodInfo _sendIAsyncStreamItemsMethod = typeof(HubConnection).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance).Single(m => m.Name.Equals(nameof(SendIAsyncEnumerableStreamItems)));
+        private static readonly MethodInfo _sendIAsyncStreamItemsMethod = typeof(HubConnection).GetMethods(BindingFlags.Public | BindingFlags.Instance).Single(m => m.Name.Equals(nameof(SendIAsyncEnumerableStreamItems)));
 
         // Persistent across all connections
         private readonly ILoggerFactory _loggerFactory;
@@ -740,7 +740,9 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         // this is called via reflection using the `_sendIAsyncStreamItemsMethod` field
-        private Task SendIAsyncEnumerableStreamItems<T>(ConnectionState connectionState, string streamId, IAsyncEnumerable<T> stream, CancellationTokenSource tokenSource)
+#pragma warning disable RS0016 // Add public types and members to the declared API
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public Task SendIAsyncEnumerableStreamItems<T>(ConnectionState connectionState, string streamId, IAsyncEnumerable<T> stream, CancellationTokenSource tokenSource)
         {
             async Task ReadAsyncEnumerableStream()
             {
@@ -1668,7 +1670,9 @@ namespace Microsoft.AspNetCore.SignalR.Client
             }
         }
 
-        private class ConnectionState : IInvocationBinder
+#pragma warning disable RS0016 // Add public types and members to the declared API
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public class ConnectionState : IInvocationBinder
         {
             private readonly HubConnection _hubConnection;
             private readonly ILogger _logger;
