@@ -45,6 +45,7 @@ Microsoft.AspNetCore.SignalR.Client.RetryContext.PreviousRetryCount.set -> void
 Microsoft.AspNetCore.SignalR.Client.RetryContext.RetryContext() -> void
 Microsoft.AspNetCore.SignalR.Client.RetryContext.RetryReason.get -> System.Exception?
 Microsoft.AspNetCore.SignalR.Client.RetryContext.RetryReason.set -> void
+Microsoft.AspNetCore.SignalR.Client.Internal.InvocationRequest
 override Microsoft.AspNetCore.SignalR.Client.HubConnectionBuilder.Equals(object? obj) -> bool
 override Microsoft.AspNetCore.SignalR.Client.HubConnectionBuilder.GetHashCode() -> int
 override Microsoft.AspNetCore.SignalR.Client.HubConnectionBuilder.ToString() -> string?
