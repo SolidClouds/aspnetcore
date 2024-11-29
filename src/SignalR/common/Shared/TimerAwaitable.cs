@@ -10,7 +10,9 @@ using Microsoft.Extensions.Internal;
 
 namespace Microsoft.AspNetCore.Internal;
 
-internal sealed class TimerAwaitable : IDisposable, ICriticalNotifyCompletion
+#pragma warning disable RS0016 // Add public types and members to the declared API
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+public sealed class TimerAwaitable : IDisposable, ICriticalNotifyCompletion
 {
     private Timer? _timer;
     private Action? _callback;
