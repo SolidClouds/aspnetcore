@@ -1,1 +1,5 @@
 #nullable enable
+Microsoft.AspNetCore.Internal.TimerAwaitable
+Microsoft.AspNetCore.SignalR.Client.HubConnection.ConnectionState
+Microsoft.AspNetCore.SignalR.Client.HubConnection.SendIAsyncEnumerableStreamItems<T>(Microsoft.AspNetCore.SignalR.Client.HubConnection.ConnectionState! connectionState, string! streamId, System.Collections.Generic.IAsyncEnumerable<T>! stream, System.Threading.CancellationTokenSource! tokenSource) -> System.Threading.Tasks.Task!
+Microsoft.AspNetCore.SignalR.Client.Internal.InvocationRequest

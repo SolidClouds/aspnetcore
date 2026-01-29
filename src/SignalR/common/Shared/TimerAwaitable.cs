@@ -10,7 +10,9 @@ using Microsoft.Extensions.Internal;
 
 namespace Microsoft.AspNetCore.Internal;
 
-internal sealed class TimerAwaitable : IDisposable, ICriticalNotifyCompletion
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+public sealed class TimerAwaitable : IDisposable, ICriticalNotifyCompletion
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 {
     private Timer? _timer;
     private Action? _callback;

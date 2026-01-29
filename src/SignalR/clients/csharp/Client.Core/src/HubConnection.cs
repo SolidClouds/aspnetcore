@@ -69,7 +69,7 @@ public partial class HubConnection : IAsyncDisposable
     };
 
     private static readonly MethodInfo _sendStreamItemsMethod = typeof(HubConnection).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance).Single(m => m.Name.Equals(nameof(SendStreamItems)));
-    private static readonly MethodInfo _sendIAsyncStreamItemsMethod = typeof(HubConnection).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance).Single(m => m.Name.Equals(nameof(SendIAsyncEnumerableStreamItems)));
+    private static readonly MethodInfo _sendIAsyncStreamItemsMethod = typeof(HubConnection).GetMethods(BindingFlags.Public | BindingFlags.Instance).Single(m => m.Name.Equals(nameof(SendIAsyncEnumerableStreamItems)));
 
     // Persistent across all connections
     private readonly ILoggerFactory _loggerFactory;
@@ -951,7 +951,9 @@ public partial class HubConnection : IAsyncDisposable
     }
 
     // this is called via reflection using the `_sendIAsyncStreamItemsMethod` field
-    private Task SendIAsyncEnumerableStreamItems<T>(ConnectionState connectionState, string streamId, IAsyncEnumerable<T> stream, CancellationTokenSource tokenSource)
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    public Task SendIAsyncEnumerableStreamItems<T>(ConnectionState connectionState, string streamId, IAsyncEnumerable<T> stream, CancellationTokenSource tokenSource)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         async Task ReadAsyncEnumerableStream()
         {
@@ -2119,7 +2121,9 @@ public partial class HubConnection : IAsyncDisposable
         }
     }
 
-    private sealed class ConnectionState : IInvocationBinder
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    public sealed class ConnectionState : IInvocationBinder
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         private readonly HubConnection _hubConnection;
         private readonly ILogger _logger;

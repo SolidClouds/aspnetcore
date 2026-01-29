@@ -12,7 +12,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.AspNetCore.SignalR.Client.Internal;
 
-internal abstract partial class InvocationRequest : IDisposable
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+public abstract partial class InvocationRequest : IDisposable
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 {
     private readonly CancellationTokenRegistration _cancellationTokenRegistration;
     private int _isActivityStopping;
